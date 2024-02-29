@@ -1,45 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Taheem Silly Webbysite</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad (Zed) Taheem (Fawwaz) Hoque's silly webbysite</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #all-contents {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        #nav-ul {
+            color: rgb(225, 190, 210);
+        }
+
+        .nav-li {
+            color: rgb(115, 255, 178);
+        }
+    </style>
 </head>
 
 <body>
+    <!-- All content goes here -->
     <div id="all-contents">
         <nav>
             <h1>Taheem Silly Webbysite</h1>
             <ul id="nav-ul">
-                <li class="nav-li">
-                    <a class="nav-a" href="index.html">Home</a>
-                </li>
-                <li class="nav-li">
-                    <a class="nav-a" href="portfolio.html">Portfolio</a>
-                </li>
+                <li class="nav-li"><a href="index.html">Home</a></li>
+                <li class="nav-li"><a href="portfolio.html">Portfolio</a></li>
             </ul>
         </nav>
+
         <main>
+            <!-- Sidebar section -->
+            <div class="sidebar">
+                <img class="sidebar-img"
+                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPDxANDQ8PDQ0PDQ8PDQ0NDQ8NDQ0NFREWFhURFRMYHSggGBolGxUVITEhJSkrLi4uFx8zODMtQygtLisBCgoKDg0OFxAPFysZFR0rKy0tLSstKy0rKy0tKysrLS0tLSstNzcrLSstLS0tKysrLTcrKysrKysrLSsrKysrK//AABEIAMkA+gMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAAAQIDBAYHBQj/xAA3EAACAQICBwQKAgEFAAAAAAAAAQIDEQQSBQYTITFBUWFxkbEHIiNCYnKBocHwM1LRFDJzgvH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EAB0RAQEBAAIDAQEAAAAAAAAAAAABEQISAyExQRP/2gAMAwEAAhEDEQA/ANgLCBM8vZ7QAAZAAAFk0AABeoAAB1AAAOoFIYA6oATAlqWFEkCAygAAAGRJABBkC0i0BSQLGVsLJrCxHM5zrpTarJ8t/wCDpOIRoOu1PhLvN8L7TGZ6LKntasOqidVRxn0b1cuLt1ivM7LDgeiua6kjGqzak10b8zKozMOtP1pfM/MyMQLgBxdBckNIAAAANcQAATGwAAJAAAFAAAAAAyYlgAQDGaYCAYhgICYoExlbCEyktIMixiYg0rXan7K/f5o3bEGr62Us1KS7GXjfatR1Lq7PGU31aO60n6q7j590JPJiKd/7I79gpXpwfWKZ6bXBeJxXQYEHmgAHF0FwuAAFwuAAFwuAAFwuAgsp3C4iUUGuxXC5OwWB2RTGDQgaYxIYSgAAIABASqBNDAgpIFrRUBi4g8LT8b05/K/I9+ujxtMU7wl0ysn6rllKeWqn0kd90JNyoU5cfZx8jgGOhlqSXD1nY7jqZWc8JTk3fdZfRI9Dg90AAo80CGYMxxdEwIZgzATAhmDMBMCGYMwEwEmMABMAAkmNMgNMCQgALAMQBTAQAw0AIAAYgMiDKS5lLAornm6RV4y7n+D0qm8wcZG6a6hpyXTMfazS6nWPRtiHLBqLd8s2l2HL9ZaWTETst3I370U1r0ZRfKT3fU7z44WY6CA7BYqPIAVwucXQwFckAgGRbAlJpHn4vStKj/LJRvwuZdSVlfojk2uekZVMQ7P1VdJLhxLJqV1LA6Vo1v45qX1M5M4LhNKVKMs0JNHSdTtbY4hKjWajV92XKRbxsZ7xuQCTGZbAAADuCYgCxIBXC4PZojKolxa8TxNYtYaWFg7yvPkk7u5zTHa04ipJyzKKbukuRZLTXaFJPgM1XUXESq4fPN3lfibSS+iUwuABUGVMtZUzKxU0YOLRnSMLEmauOa6507VE+38Hv+ijEtVJwdrNfk8/XOh73NcCPo3r5cSl1X3ud+Hxy5uzXC4orcOxtz144hiOLvxgJZiIAsSzCYgCYpxj9nP5X5HD9LSbqTv/AHfmdwxavCa+F+Rw/S8bVai+J+Zvh9Z5fHnSL8JiHTkpRdmmnuKGKx6MmPLrr+qmtCr0kqjSqR3Wbs2upskdIQ6rxRwXDYmUHeLsemtPVev3OfLx78bnPHY56Wpri14oS0xT6rxRxmWl6r94S0tV/uY/nWv6O1R0tSfNeKLFpKl1+5xOOmKq977lkdO1V733H861PLHbVioNXTXiazrNrbCgp06T9pZWa5HO6usddrLnsux7zyMRiJTeaTu+pZ47+n9Yy8fj51ZOc5OTZhORHMKO9naSSMdtdi9HsbYRPtNpUjXtSKOTB01e94pmw2PLz+usO4XEBlsMqZaVMjUVSMPEIzJGJiCVpqGt9O9NvpY1rUyu44ym/iXHvNx1np5qT/eRoOh55MVS/wCRJnXx304+SPoSjK8Y9yJ3MXAVM1OL+EtznRmSY80QAcNduMAAA0wAADTFWIXqy+V+RxHTitWqL4mdf0ppBU4y5+q1a5x7TM81WcurOnj+sc8keawBgemPGTQ0AFDuK4AAXC4AANkUxhYB5i7C75x70UGRgItzj8yJVldz1fp5aFKPLIj1jzdDL2NO/wDRHpHk5fXrnwrCJMg2ZUXKmyVyuRGoizFqq5kyMZkaeNp2nenJdn4OZf7a67JnU9LRvGS7H5HK9IxtWkujOnicvK7xoKrmw9J9aa7TOyng6k4naYOm7Wsrb3fke/c6sx4H+pLoV0zzxwbR5djvleltESuY0ZlsZFFlynF1FGN78ieY13WXH5E12Aa7rRj/AFmk9xpGIqXbZm6SxbnN9DAaPT4+P64eS+sUNhcnlDKd5jyoXGiSiWRpci4imwGZiMG6dryjK6v6vIolTGKqAbiNRIEkSyF2DoqU0pyyLra+8lXppNqLuuT6gYyiezqrhdriqceV7s8hm66hYO8tpzT/AMEvxZHTsNDKlFcjIuU03zLLni5X29c+G5EGAE1UWQkTuQkFiEjHmrGS0VTpNmbv428vGxumupy7WCi4V5o6zXw0nwOc62aNqxxDeSUoytZxTkmdPHc+sc5revRvWzYS2/1XZ+BuJonoxpzjTmpqUVxtJNeZvOddTsxHgZUGVGLDGZuCL6V+Z48enVxNSIEXNBFrqI0TXLFXlJL6G21K3HeaHrbL12b4/UtanOe93ItkZ8WCPfx9R4ufumAhmqytoLeZFXDvil4GHGVjMo45xVtzT6kRCnB8wqwsXQxCfIhiJ3sXWcYTHEHEIoCaLaTuykWfoBkYjLdJcTf9R6WWG/mjnlBOUl3o6jqnh2oq65GOdb4NsovcWXKoSsiO0PLePt6ZV9wuU7QdxOK6kTyoquR2jL1iaydmPZ9pSpssUx1jXarFBFFTDxbu4p96TLM4F48YdkaUVF7kl3KwMGI6MNYjWtwResRMpuixVkcerfY9pPqxZn1DbIplXHU7JuPaadrbSeZvkbb/AKg17WdZ4trkak9py5emgy4ghzW995E9MeW0x3IgXU1K4XI3C401bCdhyqXKriNSJq3OGZFYWL6E3IiuiBI2DVzRyq2k+r+xmjK1W0JtJRnNPjuXK3U6VgqUacbLjY8zRtCNONlYzVK5y5V14zGXtBZmUR4lpjXaeklIsVQpC5VZiJxhcxFVMinX7SDIVIkqZGNW5NMAyIjYnci5AVSENiKlajnZG7LdmT2ZGWI1IezZlZEWKAGGqDMbH4W8Wn0/B7CgjD0gtz7gVy7SNHJUkrbr7jFPc0xh25vc+J5MsNPlCXgzrrhyikTRkLCVHwpzf/VlkNGV3vVKfgVlhWE0e9o7VqvWe+Lgk7b+JtmitTKcVer7R7t3JBZNc3ihpnYVq1QtbZR8DBqamUHwhbubQlxro5dFX4FsMPN8It/Q6rhdUqEX/Hfvd/yejQ0DSjwhFfRDTq5HhdE16jtGnK3Vqxuerehp04WmrPM9xukcDGPCO/uX+S+GHXT98SXkTi8nD4Sz33M+FJGWqP7+skoP9/8ATDrjG2Y8pl5P39ZF0yY0xXEhlMlwKmgqiwszLSDQFtGoZKqmHTRZmYGRtSLqlYAW5wzIqAK1/aBmY1TL1TIwpsSUGZCpF0aaAxVRfUcsJmVmZypk40wPLWiocXGLfWyLI6Lh/WPgj0bABgwwEF7q8EZUMNFLckvoWDsWXE6obNLoSUeg7EomuxIIIlYlAkRpGJIACUAABNNFlyoAatuJsrANQyuRMiFxVYRaRIIgOxYkBBIZLKPKBWxEmgCvL2ZbGmKBfEjBKmPZk0AAkAAAwAAAnEUSSAYAAACExICTYhMCqkhkYkgAAAIYCABgxDYWBIlsxosQaRVMezJkwIKmRaLkQkBRJCsSlxIgf//Z">
+            </div>
+
+            <!-- Content section -->
             <div class="content">
-                <h1>Portfolio</h1>
-                <ul id="portfolio">
-                    <li>
-                        <a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing
-                            adventure game for Halleb0t</a>
-                    </li>
-                    <li>
-                        <a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game
-                            development on the web
-                        </a>
-                    </li>
-                    <li>
-                        <a href="projects/circularity/">Circularity : A motion poem using random number generation
-                            and velocity applied to circle shapes...</a>
-                    </li>
-                </ul>
+                <h2> Muhammad Taheem Hoque </h2>
+                <p>Student at Benjamin Franklin High.</p>
+                <!-- Interests section. -->
+                <div id="interests">
+                    <h3>Interests</h3>
+                    <ul>
+                        1<li>Video Games</li>
+                        2<li>Cats</li>
+                        3<li>Game Soundtrack</li>
+                    </ul>
+                </div>
             </div>
         </main>
     </div>
+
 </body>
 
 </html>
