@@ -3,6 +3,7 @@ body {
 }
 
 canvas {
+  background-image: url(https://media.sketchfab.com/models/2ca7f3c1957847d6a145fc35de9046b0/thumbnails/ba6d3e3498a145149f188cf09d3530e1/020ae98af02c4b6da2c8d1e1584cded3.jpeg);
   background-color: lightblue;
   margin: 20px;
 }
