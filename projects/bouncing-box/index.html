@@ -72,11 +72,14 @@
 			turn it around! 
 			*/
 			function update() {
-				speed = speed + 10;
+				positionX = speed + positionX;
 				if (positionX > boardWidth) {
 					speed = speed * -1;
 				}
-				moveBoxTo(speed);
+				if (positionX < 0) {
+					speed = speed * -1
+				}
+				moveBoxTo(positionX);
 			};
 
 			/* 
@@ -90,7 +93,7 @@
 				points = points + 1
 				speed = speed + 3
 				// Reassigning the positionX variable to 0 so that the box will move back to the left side of the screen
-
+				
 			};
 
 
