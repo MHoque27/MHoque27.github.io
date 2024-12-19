@@ -329,30 +329,34 @@ function getRandomAvailablePosition() {
 
   /* Generate random positions until one is found that doesn't overlap with the snake */
   while (!spaceIsAvailable) {
-    for (let i = snake.body.length - 1; i >= 1; i--) {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
     spaceIsAvailable = true;
+    for (let i = snake.body.length - 1; i >= 0; i--) {
+      if (snake.body[i].column == randomPosition.column && snake.body[i].row == randomPosition.row) {
+        spaceIsAvailable = false;
+      }
 
-    /*
-    TODO 13: After generating the random position determine if that position is
-    not occupied by a snakeSquare in the snake's body. If it is then set 
-    spaceIsAvailable to false so that a new position is generated.
-    */
+      /*
+      TODO 13: After generating the random position determine if that position is
+      not occupied by a snakeSquare in the snake's body. If it is then set 
+      spaceIsAvailable to false so that a new position is generated.
+      */
+    }
+
+    return randomPosition;
   }
 
-  return randomPosition;
-}
+  function calculateHighScore() {
+    // retrieve the high score from session storage if it exists, or set it to 0
+    var highScore = sessionStorage.getItem("highScore") || 0;
 
-function calculateHighScore() {
-  // retrieve the high score from session storage if it exists, or set it to 0
-  var highScore = sessionStorage.getItem("highScore") || 0;
+    if (score > highScore) {
+      sessionStorage.setItem("highScore", score);
+      highScore = score;
+      alert("New High Score!");
+    }
 
-  if (score > highScore) {
-    sessionStorage.setItem("highScore", score);
-    highScore = score;
-    alert("New High Score!");
+    return highScore;
   }
-
-  return highScore;
 }
