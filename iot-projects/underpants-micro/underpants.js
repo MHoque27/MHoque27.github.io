@@ -21,7 +21,9 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-
+_.identity = function(value) {
+    return value;
+}
 
 /** _.indexOf
 * Arguments:
