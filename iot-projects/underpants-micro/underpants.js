@@ -40,6 +40,14 @@ _.identity = function(value) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return i;
+        } 
+    }
+    return -1;
+}
 
 
 /** _.contains
@@ -55,7 +63,14 @@ _.identity = function(value) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = function(array, value) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return true;
+        } 
+    }
+    return false;
+}
 
 
 /** _.each
@@ -70,7 +85,13 @@ _.identity = function(value) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
-
+_.each = function(collection, myfunc) {
+    if (Array.isArray(collection) === true) {
+        for (let i = 0; i < collection.length; i++) {
+            myfunc(collection[i], i, collection);
+        }
+    }
+}
 
 
 /** _.filter
@@ -88,7 +109,15 @@ _.identity = function(value) {
 * Challenge:
 *   use _.each in your implementation
 */
-
+_.filter = function (array, myfunc) {
+    var newArr = [];
+    for (let i = 0; i < array.length; i++) {
+        if (myfunc(array[i], i, array)) {
+            newArr.push(array[i]);
+        }
+    }
+    return newArr;
+}
 
 
 /** _.reject
@@ -103,7 +132,16 @@ _.identity = function(value) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+_.reject = function (array, myfunc) {
+    var newArr = [];
+    for (let i = 0; i < array.length; i++) {
+        if (myfunc(array[i], i, array) === false) {
+            newArr.push(array[i]);
+        }
 
+    }
+    return newArr;
+}
 
 
 /** _.map
@@ -119,7 +157,15 @@ _.identity = function(value) {
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+_.map = function (collection, myfunc) {
+    var newArr = [];
+    if (Array.isArray(collection) === true) {
+        for (let i = 0; i < collection.length; i++) {
+            newArr.push(myfunc(collection[i], i, collection));
+        }
+    }
+    return newArr
+}
 
 
 //////////////////////////////////////////////////////////////////////
