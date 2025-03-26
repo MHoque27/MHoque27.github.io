@@ -6,7 +6,24 @@ const WebSocket = require("ws");
 const port = 8080;
 
 //TODO 1: Variables and generateTemperature function
+var temperature = 72;
+var nextCange = 0;
+function generateTemperature() {
+  let change = Math.random() - 0.5;
+  nextChange += change;
+  temperature += nextChange;
+  if (temperature < 0) {
+    temperature = 0;
+    nextChange = 0;
+  }
+  if (temperature > 100) {
+    temperature = 100;
+    nextChange = 0;
+    console.log(temperature);
+  }
+}
 
+setInterval(generateTemperature, 1000);
 
 // Configure our HTTP server.
 const server = http.createServer(function (req, res) {
