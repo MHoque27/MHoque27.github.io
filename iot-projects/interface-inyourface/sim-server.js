@@ -7,7 +7,7 @@ const port = 8080;
 
 //TODO 1: Variables and generateTemperature function
 var temperature = 72;
-var nextCange = 0;
+var nextChange = 0;
 function generateTemperature() {
   let change = Math.random() - 0.5;
   nextChange += change;
@@ -19,7 +19,6 @@ function generateTemperature() {
   if (temperature > 100) {
     temperature = 100;
     nextChange = 0;
-    console.log(temperature);
   }
 }
 
@@ -37,7 +36,10 @@ const server = http.createServer(function (req, res) {
   /* DO NOT EDIT THIS CODE */
 
   //TODO 2: Regular Polling Server
-
+  if (req.method === "GET") {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ value: temperature }));
+  }
 
 });
 
