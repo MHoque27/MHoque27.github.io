@@ -21,8 +21,8 @@ function requestFunction(req, res) {
                 serverStatus = {};
                 console.log(body)
                 serverStatus = JSON.parse(body);
-                res.writeHead(200, { 'Content-Type': 'text/plain' });
             });
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
                             res.write("The server has been updated.");
 
         } else if (req.method === "POST") {
@@ -31,7 +31,6 @@ function requestFunction(req, res) {
 
         }
     } catch {
-        res.writeHead(500, { 'Content-type': "text/plain" });
         res.write("The server has no data.");
     } finally {
         res.write("-and the message arrived");
