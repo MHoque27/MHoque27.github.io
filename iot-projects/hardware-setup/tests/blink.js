@@ -1,8 +1,8 @@
 const onoff = require("onoff");
 
 const g = onoff.Gpio;
-const l1 = new g(16, "out");
-const l2 = new g(21, "out");
+const l1 = new g(528, "out");
+const l2 = new g(533, "out");
 let i;
 
 i = setInterval(function () {
@@ -13,7 +13,7 @@ i = setInterval(function () {
       console.log(`Changed LED 2 state to: ${(value + 1) % 2}`);
     });
   });
-}, 1000);
+}, 50);
 
 process.on("SIGINT", function () {
   clearInterval(i);
