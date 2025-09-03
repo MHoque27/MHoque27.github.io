@@ -28,7 +28,7 @@
   // Variable declarations for the paddles and the ball which are drawn using createJS (see bower_components/opspark-draw/draw.js)
   const paddlePlayer = createPaddle();
   const paddleCPU = createPaddle({
-    x: canvas.width - 20,
+    x: canvas.width - 35,
     y: canvas.height - 100,
   });
   const ball = draw.circle(20, "#CCC");
@@ -95,13 +95,23 @@
     }
 
     // TODO 1: bounce the ball off the top
-
+    if (ball.y < 0) {
+      ball.yVelocity = -ball.yVelocity
+    }
 
     // TODO 2: bounce the ball off the bottom
-
+    if (ball.y > canvas.height) {
+      ball.yVelocity = -ball.yVelocity
+    }
 
     // TODO 3: bounce the ball off each of the paddles
+    if (ball.y < paddleCPU.y + paddleCPU.height && ball.y > paddleCPU.y && ball.x >= paddleCPU.x) {
+      ball.xVelocity = -ball.xVelocity;
+    }
 
+    if (ball.y < paddlePlayer.y + paddlePlayer.height && ball.y > paddlePlayer.y && ball.x <= paddlePlayer.x) {
+      ball.xVelocity = -ball.xVelocity;
+    }
 
   }
 
