@@ -24,7 +24,7 @@
   // CREATE A BACKGROUND //
   const bg = new createjs.Shape();
   console.log(bg);
-  bg.graphics.beginFill("rgba(255, 116, 116, 1)").drawCricle(350, 350, 375);
+  bg.graphics.beginFill("rgba(255, 116, 116, 1)").drawCircle(350, 350, 375);
     
   // CREATE A CIRCLE //
   const eyeContainer = new createjs.Container();
@@ -59,8 +59,7 @@
    */
   function update(event) {
     leftEye.x++;
-    rightEye.x--
+    rightEye.x--;
+    stage.update();
   }
-  
-
 }(window, window.createjs));
