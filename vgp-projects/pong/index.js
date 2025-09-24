@@ -113,6 +113,8 @@
     } else if (ball.x > canvas.width) {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
+      ball.xVelocity = 0;
+      ball.yVelocity = 0;
     }
 
     if (ball.y < paddlePlayer.y + paddlePlayer.height && ball.y > paddlePlayer.y && ball.x <= paddlePlayer.x) {
@@ -121,6 +123,8 @@
     } else if (ball.x < 0) {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
+      ball.xVelocity = 0;
+      ball.yVelocity = 0;
       // ball.xVelocity *= -1;
       // ball.yVelocity *= -1;
     }

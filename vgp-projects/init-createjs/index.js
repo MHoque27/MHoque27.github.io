@@ -24,21 +24,40 @@
   // CREATE A BACKGROUND //
   const bg = new createjs.Shape();
   console.log(bg);
-  bg.graphics.beginFill("rgba(255, 116, 116, 1)").drawCircle(350, 350, 375);
+  bg.graphics.beginFill("rgba(0, 98, 255, 1)").drawCircle(350, 350, 375);
     
   // CREATE A CIRCLE //
   const eyeContainer = new createjs.Container();
+  const eyebrowContainer = new createjs.Container();
 
-  const leftEye = new createjs.Shape();
-  const rightEye = new createjs.Shape();
+  const lTear = new createjs.Shape();
+  const rTear = new createjs.Shape();
+  const rEyebrow = new createjs.Shape();
+  const lEyebrow = new createjs.Shape();
+  const lSad = new createjs.Shape();
+  const rSad = new createjs.Shape();
   
-  leftEye.graphics.beginFill("blue").drawRect(20, 20, 60, 10);
+  
+  lTear.graphics.beginFill("blue").drawCircle(600, 175, 50); //x,y, w, h 
+  rTear.graphics.beginFill("blue").drawCircle(300, 175, 50);
+  lTear.scaleY = 1.5;
+  rTear.scaleY = 1.5
+  lTear.scaleX = 0.75;
+  rTear.scaleX = 0.75;
 
-  rightEye.graphics.beginFill("#FFBF00").drawCircle(150, 20, 25);
+  lEyebrow.graphics.beginFill("black").drawCircle(225, 200, 75);
+  rEyebrow.graphics.beginFill("black").drawCircle(450, 200, 75);
+
+  lSad.graphics.beginFill("rgba(0, 98, 255, 1)").drawCircle(175, 110, 75);
+  rSad.graphics.beginFill("rgba(0, 98, 255, 1)").drawCircle(500, 110, 75);
 
   // ADD DISPLAY OBJECTS TO STAGE //
-  eyeContainer.addChild(leftEye, rightEye);
-  stage.addChild(bg, eyeContainer);
+  eyeContainer.addChild(lTear, rTear);
+  eyebrowContainer.addChild(rEyebrow, lEyebrow);
+  stage.addChild(bg);
+  stage.addChild(eyeContainer);
+  stage.addChild(eyebrowContainer);
+  stage.addChild(lSad, rSad);
 
 
   stage.update();
@@ -58,8 +77,17 @@
    * changes to assets, it must call stage.update(); 
    */
   function update(event) {
-    leftEye.x++;
-    rightEye.x--;
+    lTear.y = lTear.y + 4;
+    if (lTear.y > 500) {
+      lTear.y = 0;
+    }
+    rTear.y = rTear.y + 3;
+    if (rTear.y > 500) {
+      rTear.y = 0;
+    }
+    
+    
+
     stage.update();
   }
 }(window, window.createjs));
