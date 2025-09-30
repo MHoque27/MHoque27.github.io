@@ -113,8 +113,15 @@
     } else if (ball.x > canvas.width) {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
+      let currentx = ball.xVelocity;
+      let currenty = ball.yVelocity;
       ball.xVelocity = 0;
       ball.yVelocity = 0;
+      setTimeout(() => {
+        ball.xVelocity = currentx;
+        ball.yVelocity = currenty;
+
+      }, 2000);
     }
 
     if (ball.y < paddlePlayer.y + paddlePlayer.height && ball.y > paddlePlayer.y && ball.x <= paddlePlayer.x) {
@@ -123,10 +130,15 @@
     } else if (ball.x < 0) {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
+      let currentx = ball.xVelocity;
+      let currenty = ball.yVelocity;
       ball.xVelocity = 0;
       ball.yVelocity = 0;
-      // ball.xVelocity *= -1;
-      // ball.yVelocity *= -1;
+      setTimeout(() => {
+        ball.xVelocity = currentx;
+        ball.yVelocity = currenty;
+
+      }, 2000);
     }
 
   }
