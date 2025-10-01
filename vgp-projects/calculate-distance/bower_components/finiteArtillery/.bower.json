@@ -1,0 +1,13 @@
+{
+  "name": "finiteArtillery",
+  "_cacheHeaders": {
+    "ETag": "W/\"8c7fbc63e23bd3a1ae7df6acbc99cfae\"",
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"8c7fbc6",
+  "main": "index",
+  "_source": "https://github.com/MHoque27/finiteArtillery",
+  "_target": "*",
+  "_originalSource": "https://github.com/MHoque27/finiteArtillery",
+  "_direct": true
+}

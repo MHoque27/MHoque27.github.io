@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "EaselJS": "^1.0.2",
-    "V6": "^0.0.2"
+    "V6": "^0.0.2",
+    "finiteArtillery": "https://github.com/MHoque27/finiteArtillery"
   }
 }
