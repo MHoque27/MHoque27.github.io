@@ -1,7 +1,7 @@
 // TODO 4: Add a parameter for your gaming library in the index.js module:
-(function(window, createjs, opspark) {
+(function(window, createjs, opspark, finiteArtillery) {
   // OUR MODULE CODE GOES BELOW HERE //
-
+  console.log(finiteArtillery);
   console.log('index.js initialized!');
   
   /*
@@ -20,7 +20,7 @@
   const engine = opspark.V6().activateResize();
   const canvas = engine.getCanvas();
   const stage = engine.getStage();
-
+  const distanceFunction = finiteArtillery.numz.calculateDistance;
   
   // TODO 4.5: import your getDistance function here
 
@@ -59,7 +59,11 @@
      * TODO 5: use getDistance to calculate the distance between shapeUp and 
      * the mouse. Store the result in a variable called distance:
      */
-    
+    var turn = {
+      x: stage.mouseX,
+      y: stage.mouseY,
+    };
+    distance = distanceFunction(shapeUp, turn);
     
     
     /*
@@ -67,6 +71,8 @@
      * alpha property of shapeUp accordingly:
      */
     
+    shapeUp.alpha = distance < radius ? 0 : 1;
+    shapeOver.alpha = distance < radius ? 1 : 0;
     
     /*
      * Update the textfield with the current distance between the mouse and 
@@ -94,4 +100,4 @@
   // OUR MODULE CODE GOES ABOVE HERE //
   
 // TODO 3: Pass your gaming library into the index.js module:
-}(window, window.createjs, window.opspark));
+}(window, window.createjs, window.opspark, window.finiteArtillery));
