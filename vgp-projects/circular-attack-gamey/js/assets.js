@@ -148,6 +148,9 @@
           
           return orb;
         },
+        makeBashPower() {
+          //make bashPower CODE HERE HERE HERE ------^^
+        },
         centerOnStage,
       };
     });
