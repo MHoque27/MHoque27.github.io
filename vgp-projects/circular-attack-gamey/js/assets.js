@@ -149,7 +149,16 @@
           return orb;
         },
         makeBashPower() {
-          //make bashPower CODE HERE HERE HERE ------^^
+          const bashOrb = draw.randomCircleInArea(canvas, false, true, '#140f61ff', 70);
+          // console.log(`rad: ${orb.radius}`);
+          // console.log(`den: ${orb.radius / 20 * 0.5}`);
+          Object.assign(bashOrb, phyz.makeBody('bashOrb', { 
+            density: bashOrb.radius / 20 * 0.5,
+            volatility: bashOrb.radius * 0.0001,
+          }));
+          phyz.addRandomVelocity(bashOrb, canvas);
+          bashOrb.update = updateOrb;
+          return bashOrb
         },
         centerOnStage,
       };

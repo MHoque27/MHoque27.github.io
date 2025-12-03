@@ -61,26 +61,41 @@
       function handleCollision(impact, body) {
         // don't handle collisions between bashPowers //
         if (body.type === this.type) return;
+        if (body.type === "projectile") return;
+        if (body.type === "ship") {
+          console.log(impact);
+          this.integrity -= impact;
+            fx
+              .makeEmitter(7, 15, "rgba(183, 0, 255, 1)", null, [
+                new Proton.RandomDrift(5, 0, .35)
+              ])
+              .emit({ x: this.x, y: this.y }, 0.5);
+            pool.recycle(this);
+            messenger.dispatch({ type: 'EXPLOSION', source: 'bashPower', target: this, incoming: body });
+        }
+          //activate bash power, destroy orb
+          
+        }
 
         /*
          * Because the explosion is async, the bashPower may exist
          * but have already exploded, so check first to see 
          * if it has integrity before running check to exlode.
          */
-        if (this.integrity > 0) {
-          console.log(impact);
-          this.integrity -= impact;
-          if (this.integrity <= 0) {
-            fx
-              .makeEmitter(2, 3, "rgba(214, 36, 84, 0.2)", null, [
-                new Proton.RandomDrift(5, 0, .35)
-              ])
-              .emit({ x: this.x, y: this.y }, 0.5);
-            pool.recycle(this);
-            messenger.dispatch({ type: 'EXPLOSION', source: 'bashPower', target: this, incoming: body });
-          }
-        }
-      }
+      //   if (this.integrity > 0) {
+      //     console.log(impact);
+      //     this.integrity -= impact;
+      //     if (this.integrity <= 0) {
+      //       fx
+      //         .makeEmitter(2, 3, "rgba(183, 0, 255, 1)", null, [
+      //           new Proton.RandomDrift(5, 0, .35)
+      //         ])
+      //         .emit({ x: this.x, y: this.y }, 0.5);
+      //       pool.recycle(this);
+      //       messenger.dispatch({ type: 'EXPLOSION', source: 'bashPower', target: this, incoming: body });
+      //     }
+      //   }
+      // }
 
       // return bashPower manager api //
       return bashPowerManager;
