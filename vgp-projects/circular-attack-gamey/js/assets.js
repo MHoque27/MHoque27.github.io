@@ -166,7 +166,7 @@
         makeMine() {
           var radius = 1
           const mine = draw.polyStar(radius + 3, 10, 40, 90, '#f34', null, null, null, null, null)
-          draw.polyStar(4, 100, 20, 30, '#f34', null,null,null,null,mine)
+          draw.polyStar(25, 100000, 10, 30, '#f34', null,null,null,null,mine)
           draw.circle(15, 'rgba(54, 70, 72, 1)', 'rgba(38, 50, 52, 1)', null, null, null, mine)
           // console.log(`rad: ${orb.radius}`);
           // console.log(`den: ${orb.radius / 20 * 0.5}`);
