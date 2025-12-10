@@ -112,7 +112,7 @@
         function onExplosion(event) {
           switch(event.source) {
             case 'orb':
-              if(event.incoming.emitter === ship) hud.updateScore(event.target.radius);
+              if(event.incoming.emitter === ship || event.incoming === ship) hud.updateScore(event.target.radius);
               break;
             case 'ship':
               if(event.target === ship) hud.setIntegrity(0);

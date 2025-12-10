@@ -56,18 +56,22 @@
         const orb = assets.makeOrb();
         orb.handleCollision = handleCollision;
         return orb;
+        
       }
       
       function handleCollision(impact, body) {
         // don't handle collisions between orbs //
         if (body.type === this.type) return;
+        if (body.bash === true) {
+          this.integrity = 0;
+        }
 
         /*
          * Because the explosion is async, the orb may exist
          * but have already exploded, so check first to see 
          * if it has integrity before running check to exlode.
          */
-        if (this.integrity > 0) {
+        if (this.integrity >= 0) {
           console.log(impact);
           this.integrity -= impact;
           if (this.integrity <= 0) {

@@ -2,10 +2,10 @@
   const
     Proton = window.Proton;
 
-  // create a namespace for the bashPower manager //
-  _.set(opspark, 'playa.bashPower',
+  // create a namespace for the mine manager //
+  _.set(opspark, 'playa.mine',
     /**
-     * Creates and returns the bashPower manager.
+     * Creates and returns the mine manager.
      */
     function(assets, fx, messenger) {
       const
@@ -23,7 +23,7 @@
           },
 
           recycle: function(object) {
-            messenger.dispatch({ type: 'POOL', bodies: [object], source: 'bashPower' });
+            messenger.dispatch({ type: 'POOL', bodies: [object], source: 'mine' });
             // remove object from the active Array //
             const i = active.indexOf(object);
             if (i > -1) {
@@ -37,7 +37,7 @@
             objects.push(object);
           }
         },
-        bashPowerManager = {
+        mineManager = {
           getNumberActive() {
             return active.length;
           },
@@ -47,19 +47,19 @@
               spawned.push(pool.get());
             }
             active.push(...spawned);
-            messenger.dispatch({ type: 'SPAWN', bodies: spawned, source: 'bashPower' });
+            messenger.dispatch({ type: 'SPAWN', bodies: spawned, source: 'mine' });
             return this;
           },
         };
       
       function makeObject() {
-        const bashPower = assets.makeBashPower();
-        bashPower.handleCollision = handleCollision;
-        return bashPower;
+        const mine = assets.makeMine();
+        mine.handleCollision = handleCollision;
+        return mine;
       }
       
       function handleCollision(impact, body) {
-        // don't handle collisions between bashPowers //
+        // don't handle collisions between mines //
         if (body.type === this.type) return;
         if (body.type === "projectile") return;
         if (body.type === "ship") {
@@ -71,23 +71,23 @@
               ])
               .emit({ x: this.x, y: this.y }, 0.5);
             pool.recycle(this);
-          messenger.dispatch({ type: 'EXPLOSION', source: 'bashPower', target: this, incoming: body });
+          messenger.dispatch({ type: 'EXPLOSION', source: 'mine', target: this, incoming: body });
           
-            body.bash = true;
+            body.mine = true;
             setTimeout(function () { 
-              body.bash = false;
+              body.mine = false;
             }, 10000)
             setTimeout(function () {
-              const powerup = opspark.playa.bashPower(assets, fx, messenger)
+              const powerup = opspark.playa.mine(assets, fx, messenger)
             .spawn(1);
             }, 15000)
           makeMine()
         }
-        //activate bash power, destroy orb
+        //activate mine power, destroy orb
         }
 
         /*
-         * Because the explosion is async, the bashPower may exist
+         * Because the explosion is async, the mine may exist
          * but have already exploded, so check first to see 
          * if it has integrity before running check to exlode.
          */
@@ -101,13 +101,13 @@
       //         ])
       //         .emit({ x: this.x, y: this.y }, 0.5);
       //       pool.recycle(this);
-      //       messenger.dispatch({ type: 'EXPLOSION', source: 'bashPower', target: this, incoming: body });
+      //       messenger.dispatch({ type: 'EXPLOSION', source: 'mine', target: this, incoming: body });
       //     }
       //   }
       // }
 
-      // return bashPower manager api //
-      return bashPowerManager;
+      // return mine manager api //
+      return mineManager;
     }
   );
 

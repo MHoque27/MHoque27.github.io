@@ -82,7 +82,7 @@
           draw.polyStar(radius, 3, 0, 0, color, null, null, null, null, ship);
           draw.circle(radius - 15, '#CCC', null, null, -5, null, ship);
 
-          // reset the radius, other non-radii drawing operations have overwritten it //
+        // reset the radius, other non-radii drawing operations have overwritten it //
           ship.radius = radius + 3;
           ship.color = color;
 
@@ -101,6 +101,9 @@
 
           // set the update behavior for the ship //
           ship.update = updateShip;
+
+          ship.bash = false;
+          //change to false when done
 
           /*
            * Returns the global position of where
@@ -160,7 +163,25 @@
           bashOrb.update = updateOrb;
           return bashOrb
         },
+        makeMine() {
+          var radius = 1
+          const mine = draw.polyStar(radius + 3, 10, 40, 90, '#f34', null, null, null, null, null)
+          draw.polyStar(4, 100, 20, 30, '#f34', null,null,null,null,mine)
+          draw.circle(15, 'rgba(54, 70, 72, 1)', 'rgba(38, 50, 52, 1)', null, null, null, mine)
+          // console.log(`rad: ${orb.radius}`);
+          // console.log(`den: ${orb.radius / 20 * 0.5}`);
+          Object.assign(mine, phyz.makeBody('mine', { 
+            density: mine.radius / 20 * 0.5,
+            volatility: mine.radius * 0.0001,
+          }));
+          phyz.addRandomVelocity(mine, canvas);
+          mine.update = updateOrb;
+          mine.x = numz.randomIntBetween(0, canvas.width);
+          mine.y = numz.randomIntBetween(0, canvas.height);
+          return mine
+        },
         centerOnStage,
       };
     });
+        
 }(window, window.opspark, window._));
