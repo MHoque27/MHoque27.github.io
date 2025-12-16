@@ -40,7 +40,7 @@
       const powerup = opspark.playa.bashPower(assets, fx, messenger)
         .spawn(1);
       const mine = opspark.playa.mine(assets, fx, messenger)
-        .spawn(1);
+        .spawn(3);
       game.view.addChild(view.container);
       
       // event handlers here //

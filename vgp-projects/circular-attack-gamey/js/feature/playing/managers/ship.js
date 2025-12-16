@@ -43,7 +43,9 @@
       }
       
       function handleCollisionShip(impact, body) {
-        
+        if (body.type === "mine") {
+          this.integrity -= 5;
+        }
         if (this.integrity > 0) {
           this.integrity -= impact;
           messenger.dispatch({ type: 'DAMAGE', source: 'ship', target: this });
@@ -52,6 +54,7 @@
             messenger.dispatch({ type: 'EXPLOSION', source: 'ship', target: this });
           }
         }
+
       }
 
       // return the ship manager api //

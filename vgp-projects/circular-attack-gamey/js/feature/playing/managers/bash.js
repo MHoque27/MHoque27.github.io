@@ -81,7 +81,7 @@
               const powerup = opspark.playa.bashPower(assets, fx, messenger)
             .spawn(1);
             }, 15000)
-          makeMine()
+          makeBashPower()
         }
         //activate bash power, destroy orb
         }

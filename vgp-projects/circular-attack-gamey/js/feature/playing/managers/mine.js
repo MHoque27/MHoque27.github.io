@@ -66,14 +66,15 @@
           console.log(impact);
           this.integrity -= impact;
             fx
-              .makeEmitter(7, 15, "rgba(183, 0, 255, 1)", null, [
-                new Proton.RandomDrift(5, 0, .35)
+              .makeEmitter(80, 15, "rgba(255, 115, 0, 1)", null, [
+                new Proton.RandomDrift(100, 0, .35)
               ])
               .emit({ x: this.x, y: this.y }, 0.5);
             pool.recycle(this);
           messenger.dispatch({ type: 'EXPLOSION', source: 'mine', target: this, incoming: body });
           
-            body.mine = true;
+          body.mine = true;
+          console.log(body.this);
             setTimeout(function () { 
               body.mine = false;
             }, 10000)
@@ -81,7 +82,6 @@
               const powerup = opspark.playa.mine(assets, fx, messenger)
             .spawn(1);
             }, 15000)
-          makeMine()
         }
         //activate mine power, destroy orb
         }
@@ -96,7 +96,7 @@
       //     this.integrity -= impact;
       //     if (this.integrity <= 0) {
       //       fx
-      //         .makeEmitter(2, 3, "rgba(183, 0, 255, 1)", null, [
+      //         .makeEmitter(2, 3, "rgba(255, 94, 0, 1)", null, [
       //           new Proton.RandomDrift(5, 0, .35)
       //         ])
       //         .emit({ x: this.x, y: this.y }, 0.5);
